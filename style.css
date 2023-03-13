@@ -1,0 +1,105 @@
+html {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 100%;
+    color: #000300;
+}
+
+:root {
+    --primary-text-color: #000300;
+    --secondary-text-color: #ffffff;
+    --primary-bg-color: #ffffff;
+    --secondary-bg-color: #000300;
+    --tertiary-bg-color: #f0f0f0;
+}
+
+*,
+*::before,
+*::after {
+    margin-inline: 0;
+    margin-block: 0;
+    margin: 0;
+    padding-inline: 0;
+    padding-block: 0;
+    padding: 0;
+    outline: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    color: inherit;
+    font-size: 1rem;
+    inline-size: 100%;
+    min-block-size: 100vb;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    min-block-size: 100vb;
+}
+
+.container-image {
+    grid-area: 1 / 1 / -1 / 2;
+    background-color: var(--tertiary-bg-color);
+}
+
+.container-form {
+    grid-area: 1 / 2 / -1 / -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-block: 2rem;
+    padding-inline: 2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 1rem;
+    inline-size: 100%;
+    max-inline-size: 500px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    inline-size: 100%;
+}
+
+.form-label {
+    inline-size: 100%;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.form-input {
+    inline-size: 100%;
+    padding-block: 0.75rem;
+    padding-inline: 0.75rem;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: var(--tertiary-bg-color);
+    border-block: 3px solid var(--tertiary-bg-color);
+    border-inline: 3px solid var(--tertiary-bg-color);
+}
+
+.submit-btn {
+    inline-size: 100%;
+    padding-block: 0.75rem;
+    padding-inline: 0.75rem;
+    font-family: inherit;
+    font-size: inherit;
+    text-align: center;
+    color: var(--secondary-text-color);
+    background-color: var(--secondary-bg-color);
+    border-block: 3px solid var(--secondary-bg-color);
+    border-inline: 3px solid var(--secondary-bg-color);
+}
