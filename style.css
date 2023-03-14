@@ -137,7 +137,7 @@ form {
 }
 
 .error-msg {
-    color: #ff0000;
+    color: #ff0000; 
     margin-block-start: 0.25rem;
     inline-size: 100%;
 }
@@ -161,7 +161,8 @@ form {
 }
 
 .submit-btn:hover {
-    opacity: 0.8;
+    background-color: #f0e68c;
+    color: var(--primary-text-color);
 }
 
 .log-in-link {
