@@ -161,8 +161,7 @@ form {
 }
 
 .submit-btn:hover {
-    background-color: #f0e68c;
-    color: var(--primary-text-color);
+    opacity: 0.8;
 }
 
 .log-in-link {
