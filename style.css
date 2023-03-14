@@ -10,6 +10,8 @@ html {
     --primary-bg-color: #ffffff;
     --secondary-bg-color: #003000;
     --tertiary-bg-color: #f0f0f0;
+    --invalid-color: #ff0000;
+    --valid-color: #00d100;
 }
 
 *,
@@ -134,6 +136,12 @@ form {
     border-inline: 3px solid var(--secondary-bg-color);
 }
 
+.error-msg {
+    color: #ff0000;
+    margin-block-start: 0.25rem;
+    inline-size: 100%;
+}
+  
 .submit-btn {
     inline-size: 100%;
     padding-block: 1rem;
