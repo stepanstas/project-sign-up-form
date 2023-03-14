@@ -6,7 +6,7 @@ const phone = document.querySelector("#phone");
 const password = document.querySelector("#password");
 const errorMessages = Array.from(document.querySelectorAll(".error-msg"));
 
-const isValidName = (name) => /^[A-Za-z\s]+$/.test(name);
+const isValidName = (name) => /^[A-Za-z\s]+$/.test(name) && name.length > 2;
 const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 const isValidPhone = (phone) => /^\d{3}-\d{3}-\d{4}$/.test(phone);
 const isValidPassword = (password) => /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/.test(password);
@@ -75,7 +75,7 @@ form.addEventListener("submit", (event) => {
     if(firstName.value.trim() === "" || firstName.value.trim() === null) {
         firstName.style.border = "3px solid #ff0000";
         firstName.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
-        errorMessages[0].textContent = "Please enter first name";
+        errorMessages[0].textContent = "Please enter a first name";
         isValid = false;
     } else {
         errorMessages[0].textContent = "";
@@ -86,7 +86,7 @@ form.addEventListener("submit", (event) => {
     if(lastName.value.trim() === "" || lastName.value.trim() === null) {
         lastName.style.border = "3px solid #ff0000";
         lastName.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
-        errorMessages[1].textContent = "Please enter last name";
+        errorMessages[1].textContent = "Please enter a last name";
         isValid = false;
     } else {
         errorMessages[1].textContent = "";
