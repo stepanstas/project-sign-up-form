@@ -6,21 +6,21 @@ const phone = document.querySelector("#phone");
 const password = document.querySelector("#password");
 const errorMessages = Array.from(document.querySelectorAll(".error-msg"));
 
-const isValidName = (name) => /^[A-Za-z\s]+$/.test(name);
+const isValidName = (name) => /^[A-Za-z\s]+$/.test(name) && name.length > 2;
 const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 const isValidPhone = (phone) => /^\d{3}-\d{3}-\d{4}$/.test(phone);
 const isValidPassword = (password) => /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/.test(password);
 
 const clearError = (input, index) => {
     errorMessages[index].textContent = "";
-    input.style.borderColor = "";
+    input.style.border = "";
     input.style.backgroundColor = "";
 }
 
 firstName.addEventListener("input", () => {
     if (!isValidName(firstName.value.trim())) {
       errorMessages[0].textContent = "Please enter a valid first name";
-      firstName.style.borderColor = "3px solid #ff0000";
+      firstName.style.border = "3px solid #ff0000";
       firstName.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
     } else {
       clearError(firstName, 0);
@@ -30,7 +30,7 @@ firstName.addEventListener("input", () => {
 lastName.addEventListener("input", () => {
     if (!isValidName(lastName.value.trim())) {
       errorMessages[1].textContent = "Please enter a valid last name";
-      lastName.style.borderColor = "3px solid #ff0000";
+      lastName.style.border = "3px solid #ff0000";
       lastName.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
     } else {
       clearError(lastName, 1);
@@ -40,8 +40,8 @@ lastName.addEventListener("input", () => {
 email.addEventListener("input", () => {
     if (!isValidEmail(email.value.trim())) {
       errorMessages[2].textContent = "Please enter a valid email address";
-      lastName.style.borderColor = "3px solid #ff0000";
-      lastName.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
+      email.style.border = "3px solid #ff0000";
+      email.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
     } else {
       clearError(email, 2);
     }
@@ -50,8 +50,8 @@ email.addEventListener("input", () => {
 phone.addEventListener("input", () => {
     if (!isValidPhone(phone.value.trim())) {
       errorMessages[3].textContent = "Please enter a valid format XXX-XXX-XXXX";
-      lastName.style.borderColor = "3px solid #ff0000";
-      lastName.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
+      phone.style.border = "3px solid #ff0000";
+      phone.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
     } else {
       clearError(phone, 3);
     }
@@ -60,8 +60,8 @@ phone.addEventListener("input", () => {
 password.addEventListener("input", () => {
     if (!isValidPassword(password.value.trim())) {
       errorMessages[4].textContent = "Password must have at least 8 characters, one uppercase letter, one lowercase letter, and one number or special character)";
-      lastName.style.borderColor = "3px solid #ff0000";
-      lastName.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
+      password.style.border = "3px solid #ff0000";
+      password.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
     } else {
       clearError(password, 4);
     }
@@ -73,9 +73,9 @@ form.addEventListener("submit", (event) => {
     let isValid = true;
 
     if(firstName.value.trim() === "" || firstName.value.trim() === null) {
-        firstName.style.borderColor = "3px solid #ff0000";
+        firstName.style.border = "3px solid #ff0000";
         firstName.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
-        errorMessages[0].textContent = "Please enter first name";
+        errorMessages[0].textContent = "Please enter a first name";
         isValid = false;
     } else {
         errorMessages[0].textContent = "";
@@ -84,10 +84,10 @@ form.addEventListener("submit", (event) => {
     }
 
     if(lastName.value.trim() === "" || lastName.value.trim() === null) {
-        lastName.style.borderColor = "3px solid #ff0000";
+        lastName.style.border = "3px solid #ff0000";
         lastName.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
-        errorMessages[1].textContent = "Please enter last name";
-        isValid = false 
+        errorMessages[1].textContent = "Please enter a last name";
+        isValid = false;
     } else {
         errorMessages[1].textContent = "";
         lastName.style.border = "";
@@ -95,35 +95,35 @@ form.addEventListener("submit", (event) => {
     }
 
     if(!isValidEmail(email.value.trim())) {
-        email.style.borderColor = "3px solid #ff0000";
+        email.style.border = "3px solid #ff0000";
         email.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
         errorMessages[2].textContent = "Please enter a valid email address";
         isValid = false;
     } else {
         errorMessages[2].textContent = "";
-        email.style.borderColor = "";
+        email.style.border = "";
         email.style.backgroundColor = "";
     }
     
     if(!isValidPhone(phone.value.trim())) {
-        phone.style.borderColor = "3px solid #ff0000";
+        phone.style.border = "3px solid #ff0000";
         phone.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
         errorMessages[3].textContent = "Please enter a valid format XXX-XXX-XXXX";
         isValid = false;
     } else {
         errorMessages[3].textContent = "";
-        phone.style.borderColor = "";
+        phone.style.border = "";
         phone.style.backgroundColor = "";
     }
     
     if(!isValidPassword(password.value.trim())) {
-        password.style.borderColor = "3px solid #ff0000";
+        password.style.border = "3px solid #ff0000";
         password.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
         errorMessages[4].textContent = "Password must have at least 8 characters, one uppercase letter, one lowercase letter, and one number or special character)";
         isValid = false;
     } else {
         errorMessages[4].textContent = "";
-        password.style.borderColor = "";
+        password.style.border = "";
         password.style.backgroundColor = "";
 
     }
