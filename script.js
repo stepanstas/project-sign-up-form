@@ -8,13 +8,16 @@ const errorMessages = Array.from(document.querySelectorAll(".error-msg"));
 
 const isValidName = (name) => /^[A-Za-z\s]+$/.test(name) && name.length > 2;
 const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-const isValidPhone = (phone) => /^\d{3}-\d{3}-\d{4}$/.test(phone);
-const isValidPassword = (password) => /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/.test(password);
+const isValidPhone = (phone) => {
+    const phoneRegex = /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)?\d{4}$/;
+    return phoneRegex.test(phone);
+  }
+  const isValidPassword = (password) => /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/.test(password);
 
 const clearError = (input, index) => {
     errorMessages[index].textContent = "";
     input.style.borderBlock = "";
-    input.style.borderInline = ""
+    input.style.borderInline = "";
     input.style.backgroundColor = "";
 }
 
@@ -53,7 +56,7 @@ email.addEventListener("input", () => {
 
 phone.addEventListener("input", () => {
     if (!isValidPhone(phone.value.trim())) {
-      errorMessages[3].textContent = "Please enter a valid format XXX-XXX-XXXX";
+      errorMessages[3].textContent = "Please enter a 10 digit phone number";
       phone.style.borderBlock = "3px solid #ff0000";
       phone.style.borderInline = "3px solid #ff0000";
       phone.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
@@ -121,7 +124,7 @@ form.addEventListener("submit", (event) => {
         phone.style.borderBlock = "3px solid #ff0000";
         phone.style.borderInline = "3px solid #ff0000";
         phone.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
-        errorMessages[3].textContent = "Please enter a valid format XXX-XXX-XXXX";
+        errorMessages[3].textContent = "Please enter a 10 digit phone number";
         isValid = false;
     } else {
         errorMessages[3].textContent = "";
